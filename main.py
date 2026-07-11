@@ -57,3 +57,13 @@ def webhook(body: WebhookRequest):
         ],
     )
     return {"text": response.choices[0].message.content.strip()}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", "3000")),
+    )
